@@ -48,6 +48,7 @@ public class JdbcTimeEntryRepositoryTest {
         assertThat(foundEntry.get("hours")).isEqualTo(8);
     }
 
+
     @Test
     public void createReturnsTheCreatedTimeEntry() throws Exception {
         TimeEntry newTimeEntry = new TimeEntry(123, 321, LocalDate.parse("2017-01-09"), 8);
@@ -156,4 +157,5 @@ public class JdbcTimeEntryRepositoryTest {
         Map<String, Object> foundEntry = jdbcTemplate.queryForMap("Select count(*) count from time_entries where id = ?", 999);
         assertThat(foundEntry.get("count")).isEqualTo(0L);
     }
+
 }
